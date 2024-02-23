@@ -1,28 +1,30 @@
-int lenStart = 400;
+int sideStart =400;
 int xStart = 50;
 int yStart = 410;
 
-public void setup() {
- size(600,420);
+void setup(){
+   size(600,420);
 }
-public void draw() {
 
+void draw(){
+  
 }
-public void mouseDragged() //optional {
- tri(xStart,yStart, lenStart);
-}
-public void sierpinski(int x, int y, int len) {
-  int x2 = x + len/2;
-  int y2 = y - len;
-  int x3 = x + len;
+
+public void tri(int x, int y, int side){
+  int x2 = x + side/2;
+  int y2 = y - side;
+  int x3 = x + side;
   int y3 = y;
-  stroke(0,0,255); 
-   triangle(x, y, x2, y2, x3, y3);    //The Shape of the Triangle
-   side = side/2;
-   
-   if(len>10){
-     tri(x,y,len);
-     tri(x+len,y,len);
-     tri(x+(len/2),y-(len),len);   
+  stroke(0,0,255);  
+   triangle(x, y, x2, y2, x3, y3);//the triangle   
+   side = side/2; 
+
+   if(side>10){
+     tri(x,y,side);
+     tri(x+side,y,side);
+     tri(x+(side/2),y-(side),side);          
    }
+}
+void mousePressed() {
+  tri(xStart, yStart, sideStart);
 }
